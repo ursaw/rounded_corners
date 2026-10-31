@@ -2,6 +2,8 @@
 
 This repository contains the Baglabs RoundCorners Inkscape extension that collects key panel dimensions.
 
+![points in 2D and 3D](dev/overview.img.png)
+
 ## Structure
 
 ```
@@ -52,7 +54,7 @@ python3 -m pip install lxml cssselect numpy
 1. Create an empty input document (any SVG works; the page is resized automatically):
 
    ```bash
-   cat > /tmp/empty.svg <<'EOF2'
+   cat > /tmp/empty.svg << EOF2
    <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="210mm" height="297mm" viewBox="0 0 210 297"><g inkscape:groupmode="layer" id="layer1" inkscape:label="Layer 1"/></svg>
    EOF2
    ```
