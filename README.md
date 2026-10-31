@@ -75,9 +75,20 @@ python3 -m pip install lxml cssselect numpy
 
 Notes:
 
-- Without `--output` the SVG is written to stdout. A short summary message is printed to stderr.
+- Without `--output` the SVG is written to stdout. A short summary message is printed to stderr (its hint "Press 5 to fit the page into the window" only applies inside Inkscape and can be ignored).
 - `python3 extensions/baglabs_roundcorners/baglabs_roundcorners.py --help` lists all options.
 - If `inkex` is installed elsewhere (e.g. macOS: `/Applications/Inkscape.app/Contents/Resources/share/inkscape/extensions`), adjust `PYTHONPATH`. On Windows use `set PYTHONPATH=...` and Inkscape's bundled Python.
+
+## DXF export
+
+`baglabs_dxf.py` in the project base writes the two patches to a DXF file (CAD/laser/plotter). It uses the same model as the extension, so marks and sizes are identical. Units are cm (1 drawing unit = 1 cm), the Y axis points up. It needs the same setup as the standalone run above (`inkex` via `PYTHONPATH`), but no extra DXF package.
+
+```bash
+PYTHONPATH=/usr/share/inkscape/extensions python3 baglabs_dxf.py            # writes baglabs_patches.dxf
+PYTHONPATH=/usr/share/inkscape/extensions python3 baglabs_dxf.py --length=60 --radius_top=12 --output=/tmp/my.dxf
+```
+
+Layers: `OUTLINE` (solid), `SEWING` (dashed, 1 cm inside), `MARKS` (each mark is drawn as a double line, since DXF R12 has no line width) and `TEXT` (mark numbers, patch name and date). The dimension lines, the info box and the mark tables of the SVG are not exported.
 
 ## Development
 
