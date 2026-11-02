@@ -16,6 +16,8 @@
       </submenu>
     </effects-menu>
     <menu-tip>Plots the UPPER and LOWER sewing patches (cm).</menu-tip>
-    <script file="baglabs_roundcorners.py" interpreter="python3"/>
   </effect>
-</inkscape-extension>
+   <script>
+        <command location="inx" interpreter="python">baglabs_roundcorners.py</command>
+    </script>
+  </inkscape-extension>
